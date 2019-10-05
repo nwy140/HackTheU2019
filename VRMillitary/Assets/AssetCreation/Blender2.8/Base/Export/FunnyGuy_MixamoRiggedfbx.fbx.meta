@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: c315add4917fd4d44ad452d583f2ddcc
+guid: 2648307138cef4923b0a50f8571c102c
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -4791504522942941401
+    second: Armature|Armature|mixamo.com|Layer0
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 532ee3fb378a548e485966b40229a83f, type: 2}
+    second: {fileID: 2100000, guid: b4ea55ed76e6d4b80a9c4d68d6c4049e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -78,37 +81,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: Re_ChibiSpeedModel_AttemptUnwrap3(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Light
-      parentName: Re_ChibiSpeedModel_AttemptUnwrap3(Clone)
-      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
-      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.28416628}
-      scale: {x: 100.00001, y: 100, z: 100}
-    - name: Camera
-      parentName: Re_ChibiSpeedModel_AttemptUnwrap3(Clone)
-      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
-      rotation: {x: 0.0906284, y: 0.8937962, z: -0.20997299, w: 0.38577998}
-      scale: {x: 100, y: 100.00001, z: 99.99999}
-    - name: Empty
-      parentName: Re_ChibiSpeedModel_AttemptUnwrap3(Clone)
-      position: {x: -1.6533034, y: 0, z: -18.160269}
-      rotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-      scale: {x: 100, y: 100, z: 100}
-    - name: Empty.001
-      parentName: Re_ChibiSpeedModel_AttemptUnwrap3(Clone)
-      position: {x: 8.506989, y: 0, z: 1.5962298}
-      rotation: {x: 0.000000099748036, y: -0.70710677, z: 0.00000009974803, w: 0.7071068}
-      scale: {x: 100, y: 100, z: 100}
-    - name: Cube.005
-      parentName: Re_ChibiSpeedModel_AttemptUnwrap3(Clone)
-      position: {x: 0.00000003987102, y: -0.06623161, z: 0.039178688}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 3.8864334, y: 3.886434, z: 5.960612}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
