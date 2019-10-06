@@ -50,7 +50,8 @@ MonoBehaviour:
   damage: 100
   pushBackForce: 0
   targetObj: {fileID: 0}
-  bIsCallEveryFame: 1
+  shooter: {fileID: 0}
+  bIsCallEveryFame: 0
 --- !u!114 &2298147102681080180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d7b9e5a97e0448fb203d88ed23831a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.5
+  time: 0.1
 --- !u!120 &2298147102681080181
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 //using TmPro;
 
 //Class
@@ -39,7 +40,7 @@ public class MechCharStatHP : MonoBehaviour
     
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
         currentHP = maxHP;
         if(StatHPText)
         StatHPText.text = currentHP.ToString();
@@ -89,10 +90,13 @@ public class MechCharStatHP : MonoBehaviour
     
     public void OnDeath()
     {
-        //GetComponent<VisCharAnim>().Death();
-        //tag = "Player";
+        anim.SetTrigger(CnvAnimTags.DEATH_TRIGGER);
+        // default tag objects will not be shot
+        tag = "Default";
         //// death code for char
         // disable all components in char
+
+        GetComponent<NavMeshAgent>().isStopped = true;
         MonoBehaviour[] components = GetComponents<MonoBehaviour>();
         foreach(MonoBehaviour comp in components)
         {

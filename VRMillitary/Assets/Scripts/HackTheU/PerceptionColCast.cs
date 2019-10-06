@@ -93,12 +93,30 @@ public class PerceptionColCast : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (((other.tag == "Enemy_2") || other.tag == "Enemy") && other.tag != characterMesh.tag)
+        // if current tag is team 1 enemy
+            // then attack any team2 enemy2
+
+        if (characterMesh.tag == "Enemy") {
+            if ( other.tag == "Enemy_2") //&& other.tag != characterMesh.tag)
+            {
+                    //&& other.gameObject != characterMesh.transform.parent.gameObject)
+
+                    collidedObj = other.gameObject;
+                //OnDetectPerception(collidedObj.transform);
+            }
+        }
+        // if current tag is team 2 enemy_2
+            // then attack any team1 enemy1
+
+        else if (characterMesh.tag == "Enemy_2")
         {
+            if (other.tag == "Enemy1") //&& other.tag != characterMesh.tag)
+            {
                 //&& other.gameObject != characterMesh.transform.parent.gameObject)
 
                 collidedObj = other.gameObject;
-            //OnDetectPerception(collidedObj.transform);
+                //OnDetectPerception(collidedObj.transform);
+            }
         }
     }   
     //private void OnTriggerStay(Collider other)
@@ -112,8 +130,30 @@ public class PerceptionColCast : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (((other.tag == "Enemy_2") || other.tag == "Enemy") && other.tag!=characterMesh.tag) {
-            collidedObj = null;
+
+
+        if (characterMesh.tag == "Enemy")
+        {
+            if (other.tag == "Enemy_2") //&& other.tag != characterMesh.tag)
+            {
+                //&& other.gameObject != characterMesh.transform.parent.gameObject)
+
+                collidedObj = other.gameObject;
+                //OnDetectPerception(collidedObj.transform);
+            }
+        }
+        // if current tag is team 2 enemy_2
+        // then attack any team1 enemy1
+
+        else if (characterMesh.tag == "Enemy_2")
+        {
+            if (other.tag == "Enemy1") //&& other.tag != characterMesh.tag)
+            {
+                //&& other.gameObject != characterMesh.transform.parent.gameObject)
+
+                collidedObj = other.gameObject;
+                //OnDetectPerception(collidedObj.transform);
+            }
         }
     } 
 }

@@ -23,7 +23,9 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
     public float range = 10f;
     public float damage = 5f;
     public float pushBackForce;
-    public GameObject targetObj; 
+    public GameObject targetObj;
+
+    public GameObject shooter;
 
     Ray shootRay;
     RaycastHit shootHit; //Anything that's hit by the raycast
@@ -34,11 +36,11 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
     private void Update()
     {
         if (bIsCallEveryFame) {
-            Awake();
+            Start();
         }
     }
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         shootableMask = LayerMask.GetMask("PropCol");
         gunLine = GetComponent<LineRenderer>(); 
@@ -53,10 +55,12 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
             Debug.Log(gameObject.name + " 2DRaycasthit: " + shootHit.collider.name);
             
             targetObj = shootHit.collider.gameObject;
-            MechCharStatHP targetMechCharStatHP = targetObj.GetComponent<MechCharStatHP>();
-            if (targetMechCharStatHP) {
-                targetMechCharStatHP.ApplyDamage(1000f);
-                print("Applying dmg: " + damage + " to " + targetObj.name);
+            if (targetObj.tag == "Enemy" || targetObj.tag == "Enemy_2" && targetObj!=shooter) {
+                MechCharStatHP targetMechCharStatHP = targetObj.GetComponent<MechCharStatHP>();
+                if (targetMechCharStatHP) {
+                    targetMechCharStatHP.ApplyDamage(1000f);
+                    print("Applying dmg: " + damage + " to " + targetObj.name);
+                }
             }
             MechExtraCharSkillPhysicsShortcuts.LaunchObjBy2Transforms(shootHit.collider.transform,transform, pushBackForce);
             
