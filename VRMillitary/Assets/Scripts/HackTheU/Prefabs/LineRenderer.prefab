@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  damage: 5
+  damage: 20
   pushBackForce: 0
+  targetObj: {fileID: 0}
+  bIsCallEveryFame: 0
 --- !u!114 &2298147102681080180
 MonoBehaviour:
   m_ObjectHideFlags: 0
