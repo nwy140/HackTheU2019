@@ -82,12 +82,11 @@ public class PerceptionCast : MonoBehaviour
                 // AI Response
                 // only if obj has animation e.g Soldier Animator
 
-                hit = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>()
-    .targetObj;
+                hit = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().targetObj;
       
                 if (hit)
                 {
-                    if (obj.tag == "Enemy")
+                    if (hit.tag == "Enemy")
                     {
                         AIResponse(hit.transform);
                     }
