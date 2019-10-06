@@ -31,14 +31,19 @@ public class PerceptionCast : MonoBehaviour
     //int shootableMask;
     //LineRenderer gunLine;
 
+    float nextTime;
+    public float fireRate = 0.5f;
+
     public List<Transform> objTargets;
 
 
     public bool bIsCallEveryFame = false;
     private void Update()
     {
-        if (bIsCallEveryFame)
+        if (bIsCallEveryFame && Time.time >nextTime)
         {
+            nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
+
             OnEnable();
         }
         print(transform.root.gameObject. name);

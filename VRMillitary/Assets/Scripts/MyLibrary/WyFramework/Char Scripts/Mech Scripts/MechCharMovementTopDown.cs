@@ -26,6 +26,7 @@ public class MechCharMovementTopDown : MonoBehaviour
     private float horizontalSpeed = 3f;
     private float verticalSpeed = 3f;
 
+    private Vector3 offsetRot = new Vector3(0,30f,0);
     // Logic
     // public lLogic
 
@@ -126,7 +127,6 @@ public class MechCharMovementTopDown : MonoBehaviour
            if(moveHorizontal>0.1|| moveHorizontal<-0.1 ||moveVertical>0.1 || moveVertical < -0.1){
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
             child_Animator.transform.rotation = Quaternion.LookRotation(movement);
-
 
             child_Animator.transform.Translate(movement * 0.1f * Time.deltaTime, Space.World);
         }
