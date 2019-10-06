@@ -93,10 +93,10 @@ public class PerceptionColCast : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Enemy" && other.tag != characterMesh.tag)
+        if (((other.tag == "Enemy_2") || other.tag == "Enemy") && other.tag != characterMesh.tag)
         {
-            //&& other.gameObject != characterMesh.transform.parent.gameObject)
-            
+                //&& other.gameObject != characterMesh.transform.parent.gameObject)
+
                 collidedObj = other.gameObject;
             //OnDetectPerception(collidedObj.transform);
         }
@@ -112,7 +112,7 @@ public class PerceptionColCast : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Enemy" && other.tag!=characterMesh.tag) {
+        if (((other.tag == "Enemy_2") || other.tag == "Enemy") && other.tag!=characterMesh.tag) {
             collidedObj = null;
         }
     } 
