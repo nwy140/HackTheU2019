@@ -33,12 +33,12 @@ public class PerceptionCast : MonoBehaviour
 
     float nextTime;
     public float fireRate = 0.5f;
-    public Vector3 rotOffset = new Vector3(0, 30f, 0);
+    public Vector3 rotOffset = new Vector3(0, 0, 0);
     public List<Transform> objTargets;
 
     GameObject hit;
     Transform characterMesh;
-
+    float timeCount;
 
     public bool bIsCallEveryFame = false;
     /*
@@ -63,9 +63,7 @@ public class PerceptionCast : MonoBehaviour
             OnEnable();
 
         }
-        if (hit ) {
-            characterMesh.transform.LookAt(hit.transform);
-        }
+       
 
     }
     void OnEnable()
@@ -102,7 +100,10 @@ public class PerceptionCast : MonoBehaviour
     void AIResponse(Transform hit)
     {
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
-        hit = null;
+        if (hit)
+        {
+            characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
+        }
     }
     /*
      *
