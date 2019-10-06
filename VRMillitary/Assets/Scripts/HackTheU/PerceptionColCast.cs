@@ -24,22 +24,37 @@ public class PerceptionColCast : MonoBehaviour
      *
      */
 
-    private Transform characterMesh;
+    float nextTime ;
+    public bool bIsCallEveryFame = true;
+    public float fireRate = 0.5f;
+
+    private GameObject characterMesh;
     private void Awake()
     {
 
         objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().range = range;
-        characterMesh = transform.root.GetComponentInChildren<VisCharAnim>().transform;
+        characterMesh = transform.root.GetComponentInChildren<VisCharAnim>().gameObject;
 
     }
 
-    private void Update()
-    {
-        if (collidedObj) {
-            OnDetectPerception(collidedObj.transform);
+    private void FixedUpdate() {
+        if (collidedObj ) {
+            //nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
+
+            characterMesh.transform.LookAt(collidedObj .transform);
+            
+
+        //rotate weapon holder to face target
+        //characterMesh.transform.rotation = Quaternion.Slerp(characterMesh.transform.rotation, collidedObj.transform.rotation, Time.deltaTime);
+            print("Shooting"+collidedObj);
         }
-        
+        //{
+        //    if (collidedObj) {
+        //        OnDetectPerception(collidedObj.transform);
+        //    }
+
     }
+
 
     private void OnDetectPerception( Transform point) {
         
@@ -66,27 +81,28 @@ public class PerceptionColCast : MonoBehaviour
     }
     void fire_weapon(Transform hit)
     {
-        //rotate weapon holder to face target
-        characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
         //characterMesh.LookAt(hit.transform);
         //Shoots a yellow raycast at target
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Enemy" && other.gameObject != characterMesh.parent.gameObject) {
-            collidedObj = other.gameObject ;
-        }
-    }
+
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Enemy" && other.gameObject != characterMesh.parent.gameObject)
+        if (other.tag == "Enemy" && other.gameObject != characterMesh.transform.parent.gameObject)
         {
             collidedObj = other.gameObject;
+            OnDetectPerception(collidedObj.transform);
         }
-    }
+    }   
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.tag == "Enemy" && other.gameObject != characterMesh.parent.gameObject)
+    //    {
+    //        collidedObj = other.gameObject;
+    //    }
+    //}
 
 
     private void OnTriggerExit(Collider other)
@@ -94,5 +110,5 @@ public class PerceptionColCast : MonoBehaviour
         if (other.tag == "Enemy") {
             collidedObj = null;
         }
-    }
+    } 
 }
