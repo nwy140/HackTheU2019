@@ -41,7 +41,9 @@ public class MechCharStatHP : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         currentHP = maxHP;
+        if(StatHPText)
         StatHPText.text = currentHP.ToString();
+        if(HPSlider)
         HPSlider.value = currentHP/maxHP;
 
     }
@@ -58,7 +60,9 @@ public class MechCharStatHP : MonoBehaviour
         if(currentHP>maxHP){
             currentHP = maxHP;
         }
+        if(HPSlider)
         HPSlider.value = currentHP/maxHP;
+        if(StatHPText)
         StatHPText.text = currentHP.ToString();
     }
 
@@ -66,7 +70,7 @@ public class MechCharStatHP : MonoBehaviour
         if(currentHP>0 && !Invulnerable){
             currentHP-= DamageValue;
             if (gameObject.activeInHierarchy) {
-                StartCoroutine (BlinkingSprite());
+                //StartCoroutine (BlinkingSprite());
             }
         } 
         if(currentHP<=0){
@@ -76,8 +80,10 @@ public class MechCharStatHP : MonoBehaviour
 
             currentHP = 0;
         }
-        
+
+        if(HPSlider)
         HPSlider.value = currentHP/maxHP;
+        if(StatHPText)
         StatHPText.text = currentHP.ToString();
     }
     
@@ -107,16 +113,16 @@ public class MechCharStatHP : MonoBehaviour
         }
 
     }
-	IEnumerator BlinkingSprite() {
-		bIsInvulnerable = true;
-		for(int i =0; i<5; i++){
-			yield return new WaitForSeconds (0.1f);
-            //disable sprite
-			yield return new WaitForSeconds (0.1f);
-            // enable sprite
-		}
-		bIsInvulnerable = false;
-	}
+	//IEnumerator BlinkingSprite() {
+		//bIsInvulnerable = true;
+		//for(int i =0; i<5; i++){
+		//	yield return new WaitForSeconds (0.1f);
+  //          //disable sprite
+		//	yield return new WaitForSeconds (0.1f);
+  //          // enable sprite
+		//}
+		//bIsInvulnerable = false;
+	//}
 
 
 }

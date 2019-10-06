@@ -27,7 +27,7 @@ public class MechExtraCharSkillRangeAtkSpwnObj : MonoBehaviour
     [FormerlySerializedAs("timeBetweenBullets")]
     public float fireRate = 0.15f;
 
-    public GameObject objToSpawn;
+    public List<GameObject> objToSpawn;
     // public Slider playerAmmoSlider;
 
     // Round stands for the number of bullets in each Magazine of the weapon, to implement reload capacity // each time you reload, a new Magazine will be used 
@@ -104,22 +104,24 @@ public class MechExtraCharSkillRangeAtkSpwnObj : MonoBehaviour
             for (int i = 0; i < roundsPerShot; i++)
             {
                 Vector3 rot;
-                if (myAnim && myAnim.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
-                {
-                    rot = spawnPoint.forward;
+                //if (myAnim && myAnim.GetCurrentAnimatorStateInfo(0).IsName("Movement"))
+                //{
+                //    rot = spawnPoint.forward;
+                //}
+                //else
+                //{
+                rot =spawnPoint.eulerAngles;
+                //}
+                foreach (GameObject obj in objToSpawn) {
+                Instantiate(obj, spawnPoint.position, Quaternion.Euler(rot));
+                print(this.name + "Spawned" + obj.name);
                 }
-                else
-                {
-                    rot = spawnPoint.rotation.ToEuler();
-                }
-
-                Instantiate(objToSpawn, spawnPoint.position, Quaternion.Euler(rot));
-                print(this.name + "Spawned" + objToSpawn.name);
                 if (shootSound)
                     playASound(shootSound);
                 currentRemainingRoundsInMagazine -= 1;
                 // playerAmmoSlider.value = remainingRounds;
             }
+
         }
         
         // auto reload when no more rounds in magazine // just like in CS and most generic FPS shooters // or simulate cooldown mode, like in Dota in Warcraft3
@@ -130,7 +132,7 @@ public class MechExtraCharSkillRangeAtkSpwnObj : MonoBehaviour
         }
         //Clamp
         currentRemainingAmmoInPocket = Mathf.Clamp(startingAmmoInPocket,0,maxAmmo);
-
+        
     }
 
     public void reload()
