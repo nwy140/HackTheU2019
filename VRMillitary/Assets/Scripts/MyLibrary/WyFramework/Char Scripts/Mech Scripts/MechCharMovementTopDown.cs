@@ -96,7 +96,11 @@ public class MechCharMovementTopDown : MonoBehaviour
             Jump();
         }
 
-
+        //Easter Egg
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            child_Animator.GetComponent<VisCharAnim>().Easter_N_Run() ;
+        }
     }
 
     public void MoveRight(float AxisValue)

@@ -65,8 +65,11 @@ public class VisCharAnim : MonoBehaviour
         if(attack == 2){
             myAnim.SetTrigger(CnvAnimTags.ATTACK_3_TRIGGER);
         }
+
         
     }
+
+
 
     public void Play_IdleAnimation(){
         
@@ -89,7 +92,11 @@ public class VisCharAnim : MonoBehaviour
 
     }
 
+    //Easter Eggs
+    public void Easter_N_Run() {
 
+        myAnim.SetBool("Easter_N_Run",!myAnim.GetBool("Easter_N_Run"));
+    }
 
 
 
