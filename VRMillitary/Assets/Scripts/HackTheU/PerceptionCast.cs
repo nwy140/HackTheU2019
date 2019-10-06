@@ -72,23 +72,21 @@ public class PerceptionCast : MonoBehaviour
         foreach (Transform point in objTargets) {
 
             if (point) {
-                GameObject obj= Instantiate(objToSpawn,transform.position,point.rotation);
-                obj.transform.LookAt(point);
-
-                // set 
-                Debug.Log(obj.name);
+                //ray is raycast type, upon creation it agregates hit event if occcured, inits with orientation and position
+                //objToSpawn is a yellow rectangle to show ray for debuging 
+                GameObject ray = Instantiate(objToSpawn,transform.position,Quaternion.identiy;
+                //have ray look at point given by loop  
+                ray.transform.LookAt(point);
+                //Debug.Log(ray.name);
                 // AI Response
                 // only if obj has animation e.g Soldier Animator
-
-                hit = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().targetObj;
-      
+                hit = ray.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().targetObj;      
                 if (hit)
                 {
+                    //only qualified ray collisions are reactive 
                     if (hit.tag == "Enemy")
                     {
-                        AIResponse(hit.transform);
-                    }
-                    else {
+                        fire_weapon(hit.transform);
                     }
                 }
 
@@ -97,48 +95,11 @@ public class PerceptionCast : MonoBehaviour
 
     }
 
-    void AIResponse(Transform hit)
+    void fire_weapon(Transform hit)
     {
+        //rotate weapon holder to face target
+        characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
+        //Shoots a yellow raycast at target
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
-        if (hit)
-        {
-            characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
-        }
     }
-    /*
-     *
-     * If detect 
-     *
-     * 
-     */
-    
-
-
 }
-/*
-             shootableMask = LayerMask.GetMask("PropCol");
-            gunLine = GetComponent<LineRenderer>();
-
-            shootRay.origin = transform.position;
-            shootRay.direction = transform.forward;
-            gunLine.SetPosition(0, transform.position);
-
-            if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
-            {
-                //hit an enemy goes here
-                gunLine.SetPosition(1, shootHit.point); // draw line from position of fired all the way to hit point
-                Debug.Log(gameObject.name + " 2DRaycasthit: " + shootHit.collider.name);
-
-                GameObject targetObj = shootHit.collider.gameObject;
-                MechCharStatHP targetMechCharStatHP = targetObj.GetComponent<MechCharStatHP>();
-                if (targetMechCharStatHP)
-                    targetMechCharStatHP.ApplyDamage(damage);
-
-                MechExtraCharSkillPhysicsShortcuts.LaunchObjBy2Transforms(shootHit.collider.transform, transform, pushBackForce);
-
-
-            }
-            else gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
-            //        shootHit.collider.GetComponent<MechCharStatHP>().ApplyDamage(damage);
-
- */
