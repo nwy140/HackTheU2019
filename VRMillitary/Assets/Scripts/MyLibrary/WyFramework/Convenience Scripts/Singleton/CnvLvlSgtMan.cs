@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 
 
-public class CnvLVLSgtMan : MonoBehaviour
+public class CnvLvlSgtMan : MonoBehaviour
 {
 
-    public static CnvLVLSgtMan instance;
+    public static CnvLvlSgtMan instance;
 
     public void Awake()
     {
@@ -17,6 +17,14 @@ public class CnvLVLSgtMan : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))    
+        {
+            LoadLevelByIndex(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            LoadLevelByIndex(1);
+
+        }
         //Always show mouse on Menu
 
     }

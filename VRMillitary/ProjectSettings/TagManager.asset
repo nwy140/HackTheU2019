@@ -10,6 +10,9 @@ TagManager:
   - Attach
   - Enemy
   - yankee
+
+  - Enemy_2
+
   layers:
   - Default
   - TransparentFX
