@@ -24786,7 +24786,7 @@ MonoBehaviour:
   objToSpawn: {fileID: 2298147102681080184, guid: 8dfc3c3670a6343719f099cdebb701db,
     type: 3}
   gunMesh: {fileID: 807033806}
-  fireRate: 1
+  fireRate: 0.5
   rotOffset: {x: 0, y: 30, z: 0}
   objTargets:
   - {fileID: 38554987}

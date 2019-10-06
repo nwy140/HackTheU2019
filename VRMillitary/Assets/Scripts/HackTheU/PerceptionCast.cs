@@ -36,7 +36,7 @@ public class PerceptionCast : MonoBehaviour
     public Vector3 rotOffset = new Vector3(0, 0, 0);
     public List<Transform> objTargets;
 
-    GameObject hit;
+    GameObject currentHit;
     Transform characterMesh;
     float timeCount;
 
@@ -66,40 +66,47 @@ public class PerceptionCast : MonoBehaviour
        
 
     }
-    void OnEnable()
-    {
+	void OnEnable()
+	{
+		List<GameObject> detectedRayHits = new List<GameObject>();
+		foreach (Transform point in objTargets)
+		{
 
-        foreach (Transform point in objTargets) {
+			if (point)
+			{
+				//ray is raycast type, upon creation it agregates hit event if occcured, inits with orientation and position
+				//objToSpawn is a yellow rectangle to show ray for debuging 
+				GameObject ray = Instantiate(objToSpawn, transform.position, Quaternion.identity);
+				//have ray look at point given by loop  
+				ray.transform.LookAt(point);
+				//Debug.Log(ray.name);
+				// AI Response
+				// only if obj has animation e.g Soldier Animator
+				currentHit = ray.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().targetObj;
 
-            if (point) {
-                //ray is raycast type, upon creation it agregates hit event if occcured, inits with orientation and position
-                //objToSpawn is a yellow rectangle to show ray for debuging 
-                GameObject ray = Instantiate(objToSpawn,transform.position,Quaternion.identiy;
-                //have ray look at point given by loop  
-                ray.transform.LookAt(point);
-                //Debug.Log(ray.name);
-                // AI Response
-                // only if obj has animation e.g Soldier Animator
-                hit = ray.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().targetObj;      
-                if (hit)
-                {
-                    //only qualified ray collisions are reactive 
-                    if (hit.tag == "Enemy")
-                    {
-                        fire_weapon(hit.transform);
-                    }
-                }
+                if(currentHit)
+				    detectedRayHits.Add(currentHit);
 
-            }
-        }
+				if (detectedRayHits.Count > 0)
+				{
+					foreach (var hit in detectedRayHits)
+					{
+						if (hit.tag == "Enemy")
+						{
+							fire_weapon(hit.transform);
+						}
+					}
+				}
+			}
 
-    }
-
-    void fire_weapon(Transform hit)
-    {
-        //rotate weapon holder to face target
-        characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
-        //Shoots a yellow raycast at target
-        gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
-    }
+		}
+	}
+		void fire_weapon(Transform hit)
+		{
+			//rotate weapon holder to face target
+			characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
+			//Shoots a yellow raycast at target
+			gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
+	}
+	
 }
