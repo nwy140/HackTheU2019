@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5da9cf6fde31d42a72cefabece5eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
+  range: 100
   damage: 0
   pushBackForce: 0
   targetObj: {fileID: 0}
@@ -71,7 +71,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2298147102681080184}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

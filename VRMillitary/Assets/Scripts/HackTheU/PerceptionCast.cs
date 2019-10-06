@@ -33,21 +33,14 @@ public class PerceptionCast : MonoBehaviour
 
     float nextTime;
     public float fireRate = 0.5f;
-
+    public Vector3 rotOffset = new Vector3(0, 30f, 0);
     public List<Transform> objTargets;
+
+    GameObject hit;
+    Transform characterMesh;
 
 
     public bool bIsCallEveryFame = false;
-    private void Update()
-    {
-        if (bIsCallEveryFame && Time.time >nextTime)
-        {
-            nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
-
-            OnEnable();
-        }
-    }
-
     /*
      *
      * If detect an enemy using raycast,
@@ -58,6 +51,22 @@ public class PerceptionCast : MonoBehaviour
     private void Awake()
     {
         objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().range = range;
+         characterMesh = transform.root.GetComponentInChildren<VisCharAnim>().transform;
+
+    }
+    private void Update()
+    {
+        if (bIsCallEveryFame && Time.time >nextTime)
+        {
+            nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
+
+            OnEnable();
+
+        }
+        if (hit ) {
+            characterMesh.transform.LookAt(hit.transform);
+        }
+
     }
     void OnEnable()
     {
@@ -73,11 +82,17 @@ public class PerceptionCast : MonoBehaviour
                 // AI Response
                 // only if obj has animation e.g Soldier Animator
 
-                GameObject hit = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>()
-.targetObj;
-                if (hit.tag == "Enemy")
+                hit = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>()
+    .targetObj;
+      
+                if (hit)
                 {
-                    AIResponse(hit.transform);
+                    if (obj.tag == "Enemy")
+                    {
+                        AIResponse(hit.transform);
+                    }
+                    else {
+                    }
                 }
 
             }
@@ -88,7 +103,7 @@ public class PerceptionCast : MonoBehaviour
     void AIResponse(Transform hit)
     {
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
-        transform.root.GetComponentInChildren<VisCharAnim>().transform.LookAt(hit);
+        hit = null;
     }
     /*
      *
