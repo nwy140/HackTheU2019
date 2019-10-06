@@ -42,7 +42,7 @@ public class PerceptionColCast : MonoBehaviour
             //nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
 
             characterMesh.transform.LookAt(collidedObj .transform);
-            
+            OnDetectPerception(collidedObj.transform);
 
         //rotate weapon holder to face target
         //characterMesh.transform.rotation = Quaternion.Slerp(characterMesh.transform.rotation, collidedObj.transform.rotation, Time.deltaTime);
@@ -73,10 +73,11 @@ public class PerceptionColCast : MonoBehaviour
         if(currentHit)
         {
             // AI only attacks when raycast detects an enemy
-            if (currentHit.tag == "Enemy") {
+            // only atacks if currentHit has RigidBody , 
+            //if (cur) {
                 lastKnownLocationObj.transform.position = currentHit.transform.position;
                 fire_weapon(lastKnownLocationObj.transform);
-            }
+            //}
         }
     }
     void fire_weapon(Transform hit)
@@ -93,7 +94,7 @@ public class PerceptionColCast : MonoBehaviour
         if (other.tag == "Enemy" && other.gameObject != characterMesh.transform.parent.gameObject)
         {
             collidedObj = other.gameObject;
-            OnDetectPerception(collidedObj.transform);
+            //OnDetectPerception(collidedObj.transform);
         }
     }   
     //private void OnTriggerStay(Collider other)
