@@ -9,6 +9,7 @@ TagManager:
   - ExplosiveBarrel
   - Attach
   - Enemy
+  - yankee
   layers:
   - Default
   - TransparentFX

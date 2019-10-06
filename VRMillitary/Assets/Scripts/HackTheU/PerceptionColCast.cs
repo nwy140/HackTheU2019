@@ -108,7 +108,8 @@ public class PerceptionColCast : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Enemy") {
+        if (
+            characterMesh.tag == other.tag) {
             collidedObj = null;
         }
     } 
