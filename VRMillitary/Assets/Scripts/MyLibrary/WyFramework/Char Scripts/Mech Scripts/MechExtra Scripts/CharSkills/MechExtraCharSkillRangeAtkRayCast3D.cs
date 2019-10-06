@@ -54,9 +54,10 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
             
             targetObj = shootHit.collider.gameObject;
             MechCharStatHP targetMechCharStatHP = targetObj.GetComponent<MechCharStatHP>();
-            if(targetMechCharStatHP)
-                targetMechCharStatHP.ApplyDamage(damage);
-            
+            if (targetMechCharStatHP) {
+                targetMechCharStatHP.ApplyDamage(1000f);
+                print("Applying dmg: " + damage + " to " + targetObj.name);
+            }
             MechExtraCharSkillPhysicsShortcuts.LaunchObjBy2Transforms(shootHit.collider.transform,transform, pushBackForce);
             
             

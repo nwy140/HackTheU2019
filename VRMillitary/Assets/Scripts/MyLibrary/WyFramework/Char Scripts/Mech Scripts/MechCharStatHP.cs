@@ -89,9 +89,9 @@ public class MechCharStatHP : MonoBehaviour
     
     public void OnDeath()
     {
-        GetComponentInChildren<VisCharAnim>().Death();
-        tag = "Player";
-        // death code for char
+        //GetComponent<VisCharAnim>().Death();
+        //tag = "Player";
+        //// death code for char
         // disable all components in char
         MonoBehaviour[] components = GetComponents<MonoBehaviour>();
         foreach(MonoBehaviour comp in components)

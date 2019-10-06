@@ -10,7 +10,7 @@ public class PerceptionColCast : MonoBehaviour
 
     public GameObject gunMesh;
     public float range;
-
+    public float damage = 200f;
 
     // This object is a marker for the last known location that the AI saw
     public GameObject lastKnownLocationObj;
@@ -33,6 +33,8 @@ public class PerceptionColCast : MonoBehaviour
     {
 
         objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().range = range;
+        objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().damage = damage;
+
         if (characterMesh == null) {
 
         }
@@ -91,7 +93,7 @@ public class PerceptionColCast : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Enemy" && other.gameObject != characterMesh.transform.parent.gameObject)
+        if (other.tag == "Enemy" )//&& other.gameObject != characterMesh.transform.parent.gameObject)
         {
             collidedObj = other.gameObject;
             //OnDetectPerception(collidedObj.transform);
