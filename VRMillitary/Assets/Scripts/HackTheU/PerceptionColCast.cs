@@ -35,10 +35,6 @@ public class PerceptionColCast : MonoBehaviour
         objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().range = range;
         objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().damage = damage;
 
-        if (characterMesh == null) {
-
-        }
-
     }
 
     private void FixedUpdate() {
@@ -76,9 +72,10 @@ public class PerceptionColCast : MonoBehaviour
         // AI Response
         if(currentHit)
         {
-            // AI only attacks when raycast detects an enemy
-            // only atacks if currentHit has RigidBody , 
-            //if (cur) {
+			// AI only attacks when raycast detects an enemy
+			// only atacks if currentHit has RigidBody , 
+			//if (cur) {
+			lastKnownLocationObj.transform.parent = null;
                 lastKnownLocationObj.transform.position = currentHit.transform.position;
                 fire_weapon(lastKnownLocationObj.transform);
             //}
@@ -96,7 +93,7 @@ public class PerceptionColCast : MonoBehaviour
         // if current tag is team 1 enemy
             // then attack any team2 enemy2
 
-        if (characterMesh.tag == "Enemy") {
+        if (characterMesh.tag == "Enemy_1") {
             if ( other.tag == "Enemy_2") //&& other.tag != characterMesh.tag)
             {
                     //&& other.gameObject != characterMesh.transform.parent.gameObject)
@@ -110,7 +107,7 @@ public class PerceptionColCast : MonoBehaviour
 
         else if (characterMesh.tag == "Enemy_2")
         {
-            if (other.tag == "Enemy1") //&& other.tag != characterMesh.tag)
+            if (other.tag == "Enemy_1") //&& other.tag != characterMesh.tag)
             {
                 //&& other.gameObject != characterMesh.transform.parent.gameObject)
 
@@ -131,7 +128,7 @@ public class PerceptionColCast : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
  
-        if (characterMesh.tag == "Enemy")
+        if (characterMesh.tag == "Enemy_1")
         {
             if (other.tag == "Enemy_2") //&& other.tag != characterMesh.tag)
             {
@@ -146,7 +143,7 @@ public class PerceptionColCast : MonoBehaviour
 
         else if (characterMesh.tag == "Enemy_2")
         {
-            if (other.tag == "Enemy1") //&& other.tag != characterMesh.tag)
+            if (other.tag == "Enemy_1") //&& other.tag != characterMesh.tag)
             {
                 //&& other.gameObject != characterMesh.transform.parent.gameObject)
 

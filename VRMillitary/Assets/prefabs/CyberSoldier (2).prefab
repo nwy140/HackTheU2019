@@ -589,6 +589,7 @@ MonoBehaviour:
     type: 3}
   gunMesh: {fileID: 1517983357}
   range: 100
+  damage: 200
   lastKnownLocationObj: {fileID: 302831022}
   bIsCallEveryFame: 1
   fireRate: 0.5
@@ -964,6 +965,7 @@ MonoBehaviour:
   damage: 5
   pushBackForce: 0
   targetObj: {fileID: 0}
+  shooter: {fileID: 0}
   bIsCallEveryFame: 0
 --- !u!114 &1961575335
 MonoBehaviour:
@@ -2492,8 +2494,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8373990013532793831}
   m_LocalRotation: {x: 0.27876973, y: 0.89606416, z: -0.1306067, w: 0.31984127}
-  m_LocalPosition: {x: 0.0000000048894417, y: 0.3394453, z: 0.000000014901114}
-  m_LocalScale: {x: 0.99999994, y: 0.9999998, z: 1}
+  m_LocalPosition: {x: 0, y: 0.3394453, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5152107414552761551}
   m_Father: {fileID: 7551642971453982091}
