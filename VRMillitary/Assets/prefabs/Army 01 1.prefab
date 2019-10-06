@@ -1489,7 +1489,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: yankee
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}

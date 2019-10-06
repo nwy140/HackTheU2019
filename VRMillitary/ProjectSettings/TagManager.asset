@@ -13,6 +13,7 @@ TagManager:
   - Enemy_2
   - Enemy_1
   - Death
+  - loading_scene
   layers:
   - Default
   - TransparentFX
