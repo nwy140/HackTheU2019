@@ -26,7 +26,7 @@ public class MechCharMovementTopDown : MonoBehaviour
     private float horizontalSpeed = 3f;
     private float verticalSpeed = 3f;
 
-    private Vector3 offsetRot = new Vector3(0,30f,0);
+    public Vector3 offsetRot = new Vector3(0,30f,0);
     // Logic
     // public lLogic
 

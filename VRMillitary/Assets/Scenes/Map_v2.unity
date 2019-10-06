@@ -2585,7 +2585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204457339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.931285, y: 6.7, z: 2.4689674}
+  m_LocalPosition: {x: 3.931285, y: 6.7, z: 2.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1697729106}
@@ -3693,6 +3693,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ddb24fdbbc4a44728bc5baa8edd9069e, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 9df6319794e9b954c914d33c9b2e6f8c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df6319794e9b954c914d33c9b2e6f8c, type: 3}
 --- !u!4 &269186790 stripped
@@ -10179,6 +10184,7 @@ MonoBehaviour:
   idleForce: {x: 0, y: 0, z: 0}
   verticalSpeedMultiplier: 1
   horiSpeedMultiplier: 5
+  offsetRot: {x: 0, y: 30, z: 0}
   child_cust_mechActorGroundDetector: {fileID: 0}
 --- !u!54 &718318825
 Rigidbody:
@@ -11089,6 +11095,7 @@ MonoBehaviour:
   idleForce: {x: 0, y: 0, z: 0}
   verticalSpeedMultiplier: 1
   horiSpeedMultiplier: 5
+  offsetRot: {x: 0, y: 30, z: 0}
   child_cust_mechActorGroundDetector: {fileID: 0}
 --- !u!54 &759863333
 Rigidbody:
@@ -16675,13 +16682,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151685658}
-  m_LocalRotation: {x: 0.6522231, y: -0, z: -0, w: 0.758027}
-  m_LocalPosition: {x: 4.7, y: 12.07, z: -2.6}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 4.7, y: 10.76, z: -6.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 273041204}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 81.41901, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &1151685660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16731,7 +16738,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 38
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -24655,7 +24662,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697729105}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c359e1367d67427b8a2fe9c02982974, type: 3}
   m_Name: 
@@ -24663,6 +24670,7 @@ MonoBehaviour:
   idleForce: {x: 0, y: 0, z: 0}
   verticalSpeedMultiplier: 1
   horiSpeedMultiplier: 5
+  offsetRot: {x: 0, y: 30, z: 0}
   child_cust_mechActorGroundDetector: {fileID: 0}
 --- !u!54 &1697729109
 Rigidbody:
@@ -27831,22 +27839,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.30635986
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.95191586
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
@@ -27861,7 +27869,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -35.68
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9df6319794e9b954c914d33c9b2e6f8c,
         type: 3}
@@ -28826,7 +28834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943609263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 6.7, z: 2.4689674}
+  m_LocalPosition: {x: 3.67, y: 6.7, z: 4.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 718318827}
@@ -29172,7 +29180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de8ebd394f8e42eea38e90cd9f8dc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
+  range: 5
   damage: 0
   pushBackForce: 0
   objToSpawn: {fileID: 2298147102681080184, guid: 8dfc3c3670a6343719f099cdebb701db,

@@ -46,7 +46,6 @@ public class PerceptionCast : MonoBehaviour
 
             OnEnable();
         }
-        print(transform.root.gameObject. name);
     }
 
     /*
@@ -67,16 +66,18 @@ public class PerceptionCast : MonoBehaviour
 
             if (point) {
                 GameObject obj= Instantiate(objToSpawn,transform.position,point.rotation);
-                MechExtraCharSkillRangeAtkRayCast3D obj_mechExtraCharSkillRangeAtkRayCast3D = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>(); 
                 obj.transform.LookAt(point);
 
                 // set 
-                print(obj.name);
+                Debug.Log(obj.name);
                 // AI Response
                 // only if obj has animation e.g Soldier Animator
-                if (obj.tag == "Enemy")
+
+                GameObject hit = obj.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>()
+.targetObj;
+                if (hit.tag == "Enemy")
                 {
-                    AIResponse();
+                    AIResponse(hit.transform);
                 }
 
             }
@@ -84,9 +85,10 @@ public class PerceptionCast : MonoBehaviour
 
     }
 
-    void AIResponse()
+    void AIResponse(Transform hit)
     {
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
+        transform.root.GetComponentInChildren<VisCharAnim>().transform.LookAt(hit);
     }
     /*
      *
