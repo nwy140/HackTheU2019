@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0b5c26887adbc4b890d2ecba42773f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.3
+  fireRate: 0.001
   objToSpawn:
   - {fileID: 2298147102681080184, guid: 69040571f7a7d4f1088a279196f80765, type: 3}
   maxRoundsInMagazine: 30
@@ -1958,9 +1958,9 @@ GameObject:
   - component: {fileID: 693161743}
   - component: {fileID: 693161742}
   - component: {fileID: 693161741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CyberSoldier (2)
-  m_TagString: Enemy
+  m_TagString: Enemy_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

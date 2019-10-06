@@ -1326,11 +1326,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CyberSoldier (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 5163786503434528680, guid: d564a2eaeb71f0f46a9add5bee05b671,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy_2
-      objectReference: {fileID: 0}
     - target: {fileID: 551284437208821155, guid: d564a2eaeb71f0f46a9add5bee05b671,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3185,6 +3180,10 @@ PrefabInstance:
     - target: {fileID: 313084629, guid: 5173609993484974e9053425a64fd3c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589071395, guid: 5173609993484974e9053425a64fd3c8, type: 3}
+      propertyPath: fireRate
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 2079822200, guid: 5173609993484974e9053425a64fd3c8, type: 3}
       propertyPath: m_Enabled
