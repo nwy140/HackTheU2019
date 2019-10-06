@@ -33,7 +33,7 @@ public class CnvCameraFollowObj : MonoBehaviour
     void Awake () 
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        if(!useCustomOffset){
+        if(!useCustomOffset &&target){
             offset = transform.position - target.transform.position;
         }
     }
