@@ -28,12 +28,14 @@ public class PerceptionColCast : MonoBehaviour
     public bool bIsCallEveryFame = true;
     public float fireRate = 0.5f;
 
-    private GameObject characterMesh;
+    public GameObject characterMesh;
     private void Awake()
     {
 
         objToSpawn.GetComponentInChildren<MechExtraCharSkillRangeAtkRayCast3D>().range = range;
-        characterMesh = transform.root.GetComponentInChildren<VisCharAnim>().gameObject;
+        if (characterMesh == null) {
+
+        }
 
     }
 
@@ -86,8 +88,6 @@ public class PerceptionColCast : MonoBehaviour
         //Shoots a yellow raycast at target
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
     }
-
-
 
     private void OnTriggerStay(Collider other)
     {
