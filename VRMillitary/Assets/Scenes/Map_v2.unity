@@ -11598,9 +11598,9 @@ GameObject:
   - component: {fileID: 759863334}
   - component: {fileID: 759863333}
   - component: {fileID: 759863332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PC_Man
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24786,14 +24786,20 @@ MonoBehaviour:
   objToSpawn: {fileID: 2298147102681080184, guid: 8dfc3c3670a6343719f099cdebb701db,
     type: 3}
   gunMesh: {fileID: 807033806}
-  fireRate: 0.5
+  fireRate: 1
   rotOffset: {x: 0, y: 30, z: 0}
   objTargets:
   - {fileID: 38554987}
+  - {fileID: 904911833}
   - {fileID: 1067132283}
+  - {fileID: 1267483526}
   - {fileID: 2033810279}
+  - {fileID: 137903409}
   - {fileID: 1828280999}
+  - {fileID: 1529558517}
   - {fileID: 47062412}
+  - {fileID: 1191520073}
+  - {fileID: 1307428753}
   bIsCallEveryFame: 1
 --- !u!1001 &1683838202
 PrefabInstance:
