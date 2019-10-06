@@ -30,7 +30,7 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
     Ray shootRay;
     RaycastHit shootHit; //Anything that's hit by the raycast
     int shootableMask;
-    LineRenderer gunLine;
+    public LineRenderer gunLine;
 
     public bool bIsCallEveryFame = false;
     private void Update()
@@ -39,17 +39,24 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
             Start();
         }
     }
+
+	void Awake() {
+		shootableMask = LayerMask.GetMask("PropCol");
+		if (gunLine == null)
+		{
+			gunLine = GetComponent<LineRenderer>();
+		}
+
+	}
     // Start is called before the first frame update
     void Start()
     {
-        shootableMask = LayerMask.GetMask("PropCol");
-        gunLine = GetComponent<LineRenderer>(); 
 
-        shootRay.origin = transform.position;  
-        shootRay.direction = transform.forward;
-        gunLine.SetPosition(0,transform.position);
 
-        if(Physics.Raycast(shootRay, out shootHit,range , shootableMask)){
+		shootRay.origin = transform.position;
+		shootRay.direction = transform.forward;
+		gunLine.SetPosition(0, transform.position);
+		if (Physics.Raycast(shootRay, out shootHit,range , shootableMask)){
             //hit an enemy goes here
             gunLine.SetPosition(1,shootHit.point); // draw line from position of fired all the way to hit point
             Debug.Log(gameObject.name + " 2DRaycasthit: " + shootHit.collider.name);

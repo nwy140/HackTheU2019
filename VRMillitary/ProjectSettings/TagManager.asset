@@ -12,6 +12,7 @@ TagManager:
   - yankee
   - Enemy_2
   - Enemy_1
+  - Death
   layers:
   - Default
   - TransparentFX

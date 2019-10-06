@@ -39,10 +39,11 @@ public class PerceptionColCast : MonoBehaviour
 
     private void FixedUpdate() {
         if (collidedObj ) {
-            //nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
-
-            characterMesh.transform.LookAt(collidedObj .transform);
-            OnDetectPerception(collidedObj.transform);
+			//nextTime = Time.time + fireRate; // increase time between bullets for weapon delay
+			if (collidedObj.tag != "Death") {
+                characterMesh.transform.LookAt(collidedObj .transform);
+                OnDetectPerception(collidedObj.transform);
+			}
 
         //rotate weapon holder to face target
         //characterMesh.transform.rotation = Quaternion.Slerp(characterMesh.transform.rotation, collidedObj.transform.rotation, Time.deltaTime);

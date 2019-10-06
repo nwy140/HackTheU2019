@@ -92,7 +92,7 @@ public class MechCharStatHP : MonoBehaviour
     {
         anim.SetTrigger(CnvAnimTags.DEATH_TRIGGER);
         // default tag objects will not be shot
-        tag = "Default";
+        tag = "Death";
         //// death code for char
         // disable all components in char
 
