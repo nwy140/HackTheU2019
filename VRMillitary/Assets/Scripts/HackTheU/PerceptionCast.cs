@@ -63,9 +63,7 @@ public class PerceptionCast : MonoBehaviour
             OnEnable();
 
         }
-        if (hit ) {
-            characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
-        }
+       
 
     }
     void OnEnable()
@@ -102,6 +100,10 @@ public class PerceptionCast : MonoBehaviour
     void AIResponse(Transform hit)
     {
         gunMesh.GetComponentInChildren<MechExtraCharSkillRangeAtkSpwnObj>().useWeapon();
+        if (hit)
+        {
+            characterMesh.rotation = Quaternion.Slerp(characterMesh.rotation, hit.transform.rotation, Time.deltaTime);
+        }
     }
     /*
      *
