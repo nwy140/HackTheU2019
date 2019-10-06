@@ -62,6 +62,9 @@ public class MechVehDroneMovementTopDown : MonoBehaviour
         // if no movement button vert or hori press, decelerate and slowdown speed
         if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
             DecelerateOnIdle();
+
+
+
     }
 
     public void MoveRight(float AxisValue){
