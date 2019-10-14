@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/simplified_alex_New 1.unity
+    guid: 85e617b4f3bbf4f458e641a63bbdb454
+  - enabled: 1
     path: Assets/Scenes/Map_v4.unity
     guid: 9f688adea828b45558560103acdaef08
-  - enabled: 1
-    path: Assets/simplified_alex_New.unity
-    guid: f8daa9faebd1f465fb57896cb9f3d317
   m_configObjects: {}

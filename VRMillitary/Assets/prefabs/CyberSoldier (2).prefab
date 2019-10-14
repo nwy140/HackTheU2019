@@ -558,8 +558,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300030884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: -1, z: -2.01}
-  m_LocalScale: {x: 466.97952, y: 156.86, z: 242.72519}
+  m_LocalPosition: {x: -0.3, y: 0, z: -9.2}
+  m_LocalScale: {x: 466.97952, y: 156.86, z: 942.29694}
   m_Children: []
   m_Father: {fileID: 657722682}
   m_RootOrder: 0
@@ -588,11 +588,11 @@ MonoBehaviour:
   objToSpawn: {fileID: 2298147102681080184, guid: 8dfc3c3670a6343719f099cdebb701db,
     type: 3}
   gunMesh: {fileID: 1517983357}
-  range: 100
-  damage: 200
+  range: 10000
+  damage: 10000
   lastKnownLocationObj: {fileID: 302831022}
   bIsCallEveryFame: 1
-  fireRate: 0.5
+  fireRate: 0.1
   characterMesh: {fileID: 5163786503434528680}
 --- !u!23 &1300030888
 MeshRenderer:
@@ -835,9 +835,9 @@ MonoBehaviour:
   roundsPerShot: 1
   startingRoundsInMagazine: 30
   currentRemainingRoundsInMagazine: 0
-  maxAmmo: 90
-  startingAmmoInPocket: 60
-  currentRemainingAmmoInPocket: 0
+  maxAmmo: 9090909
+  startingAmmoInPocket: 9090909
+  currentRemainingAmmoInPocket: 898989
   spawnPoint: {fileID: 2049941467}
   shootSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
   reloadSound: {fileID: 8300000, guid: f7ce534a0633b9847910ba117e2245d1, type: 3}
@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5da9cf6fde31d42a72cefabece5eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 100
+  range: 1000
   damage: 5
   pushBackForce: 0
   targetObj: {fileID: 0}

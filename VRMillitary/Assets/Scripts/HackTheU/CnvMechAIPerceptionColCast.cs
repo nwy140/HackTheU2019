@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PerceptionColCast : MonoBehaviour
+public class CnvMechAIPerceptionColCast : MonoBehaviour
 {
     public GameObject collidedObj;
 
