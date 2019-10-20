@@ -39,8 +39,12 @@ public class MechCharStatHP : MonoBehaviour
 
     
     void Start()
-    {
-        anim = GetComponent<Animator>();
+	{
+		anim = GetComponent<Animator>();
+		// if anim still null, Get anim in children
+		if(anim == null){
+			anim = GetComponentInChildren<Animator>();
+		}
         currentHP = maxHP;
         if(StatHPText)
         StatHPText.text = currentHP.ToString();
@@ -89,15 +93,21 @@ public class MechCharStatHP : MonoBehaviour
     }
     
     public void OnDeath()
-    {
+	{
+    	
         anim.SetTrigger(CnvAnimTags.DEATH_TRIGGER);
         // default tag objects will not be shot
         tag = "Death";
         //// death code for char
         // disable all components in char
 
-        GetComponent<NavMeshAgent>().isStopped = true;
-        MonoBehaviour[] components = GetComponents<MonoBehaviour>();
+
+		//for char using NavAgent only
+		if( GetComponent<NavMeshAgent>()){
+			
+        	GetComponent<NavMeshAgent>().isStopped = true;
+		}
+		MonoBehaviour[] components = GetComponents<MonoBehaviour>();
         foreach(MonoBehaviour comp in components)
         {
 

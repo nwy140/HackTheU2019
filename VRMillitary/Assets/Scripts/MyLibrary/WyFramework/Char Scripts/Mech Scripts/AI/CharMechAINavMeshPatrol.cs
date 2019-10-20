@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class CharMechAINavMeshPatrol : MonoBehaviour
 {
 	public List<Transform> patrolPoints;
 	public int patrolIndex = 0;
-	public float destinationRadius ; 
+	public float reachDestinationRadius = 10f; 
 	
 	private NavMeshAgent mNavMeshAgent;
     void Start()
@@ -21,7 +20,7 @@ public class CharMechAINavMeshPatrol : MonoBehaviour
 	// Update is called every frame, if the MonoBehaviour is enabled.
 	protected void Update()
 	{
-		if(CheckHasReachDestination(destinationRadius)){
+		if(CheckHasReachDestination(reachDestinationRadius)){
 			patrolIndex++;
 			setPatrolDestinationByIndex(patrolIndex);
 			
@@ -38,19 +37,20 @@ public class CharMechAINavMeshPatrol : MonoBehaviour
 	// TODO fix destinationRadius
 	public bool CheckHasReachDestination(float destinationRadius){
 		// Check if we've reached the destination
-		if (!mNavMeshAgent.pathPending)
+		// Check if we've reached the destination
+		if (!mNavMeshAgent.pathPending && mNavMeshAgent.isActiveAndEnabled)
 		{
-			if (mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance - destinationRadius)
+			if (mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
 			{
-				if (!mNavMeshAgent.hasPath || mNavMeshAgent.velocity.sqrMagnitude == 0f)
+				if (!mNavMeshAgent.hasPath || mNavMeshAgent.velocity.sqrMagnitude == destinationRadius)
 				{
-					// Done
 					return true;
 				}
 			}
 		}
 		return false;
 	}
+	
 
 }
 

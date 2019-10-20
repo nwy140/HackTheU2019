@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CnvMechAIPerceptionColCast : MonoBehaviour
 {
+	// This class is not usable and optimized yet
+
     public GameObject collidedObj;
 
     public GameObject objToSpawn;

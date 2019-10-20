@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class MechCharMovementRTS : MonoBehaviour
 {
+	// This class is not usable and optimized yet
+	
+	
     public GameObject unit;
 
     public bool unitSelected;
@@ -129,7 +132,7 @@ public class MechCharMovementRTS : MonoBehaviour
     public bool CheckReachedDestination()
     {
         // Check if we've reached the destination
-        if (!navMeshAgent.pathPending)
+	    if (!navMeshAgent.pathPending && navMeshAgent.isActiveAndEnabled)
         {
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {

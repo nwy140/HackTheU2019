@@ -2640,7 +2640,7 @@ GameObject:
   - component: {fileID: 759863332}
   m_Layer: 8
   m_Name: PC_Man
-  m_TagString: Enemy
+  m_TagString: Enemy_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2725,7 +2725,10 @@ MonoBehaviour:
   currentHP: 300
   HPSlider: {fileID: 844545036}
   StatHPText: {fileID: 0}
-  objsToDisableOnDeath: []
+  objsToDisableOnDeath:
+  - {fileID: 1351993657}
+  - {fileID: 1761917562}
+  - {fileID: 0}
   objsToEnableOnDeath: []
 --- !u!1 &770186942
 GameObject:
@@ -5843,7 +5846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1627614510}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Character_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6381,7 +6384,7 @@ GameObject:
   - component: {fileID: 1705979505}
   - component: {fileID: 1705979504}
   - component: {fileID: 1705979503}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
