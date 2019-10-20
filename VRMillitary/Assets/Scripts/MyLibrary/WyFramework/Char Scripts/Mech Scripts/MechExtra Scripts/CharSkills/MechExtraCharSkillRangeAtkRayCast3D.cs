@@ -65,7 +65,7 @@ public class MechExtraCharSkillRangeAtkRayCast3D : MonoBehaviour
             if (targetObj.tag == "Enemy" || targetObj.tag == "Enemy_2" && targetObj!=shooter) {
                 MechCharStatHP targetMechCharStatHP = targetObj.GetComponent<MechCharStatHP>();
                 if (targetMechCharStatHP) {
-                    targetMechCharStatHP.ApplyDamage(1000f);
+	                targetMechCharStatHP.ApplyDamage(damage);
                     print("Applying dmg: " + damage + " to " + targetObj.name);
                 }
             }
